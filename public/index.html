@@ -3,8 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Catat Order Offline - Solusi Mudah Kelola Pesanan Bisnis</title>
+    <title>Catat Order Offline</title>
     <meta name="description" content="Aplikasi revolusioner untuk mencatat pesanan tanpa koneksi internet. Kelola bisnis Anda dengan mudah, kapan saja, di mana saja.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
 
     <!-- Firebase Scripts -->
     <script defer src="/__/firebase/12.1.0/firebase-app-compat.js"></script>
@@ -196,12 +201,52 @@
     <section class="hero-bg min-h-screen px-4 md:px-8 py-16 lg:py-24 relative">
       <div class="max-w-7xl mx-auto relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <!-- Left Content -->
-          <div class="space-y-8 lg:space-y-10" data-aos="fade-right" data-aos-duration="1000">
+          <!-- Left Content - App Image (Mobile: Top, Desktop: Left) -->
+          <div class="relative flex justify-center lg:justify-start order-1 lg:order-1" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+            <div class="relative">
+              <!-- Floating Badge -->
+              <div class="absolute -top-6 -right-6 bg-gradient-to-br from-orange-500 to-red-500 text-white px-6 py-3 rounded-2xl text-sm font-bold badge-floating z-10 shadow-xl">
+                <div class="flex items-center gap-2">
+                  <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  Tanpa Internet
+                </div>
+              </div>
+              
+              <!-- App Image -->
+              <img 
+                src="assets/catat-order-offline.png" 
+                alt="Catat Order Offline App" 
+                class="w-80 md:w-96 lg:w-[28rem] hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              
+              <!-- Fallback jika gambar tidak ada -->
+              <div class="w-80 md:w-96 lg:w-[28rem] h-96 bg-gradient-to-br from-green-100 to-orange-100 rounded-2xl shadow-2xl border border-gray-200 hover:scale-105 transition-transform duration-500 flex flex-col items-center justify-center text-center p-8" style="display: none;">
+                <div class="w-24 h-24 bg-gradient-to-br from-green-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
+                  <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Catat Order Offline</h3>
+                <p class="text-gray-600 text-lg">Aplikasi Manajemen Pesanan</p>
+                <div class="bg-white rounded-xl p-4 mt-4 w-full">
+                  <div class="text-sm text-gray-500 mb-2">Preview Dashboard</div>
+                  <div class="flex gap-2 mb-3">
+                    <div class="bg-green-100 rounded p-2 flex-1 text-center text-xs">Order: 24</div>
+                    <div class="bg-blue-100 rounded p-2 flex-1 text-center text-xs">Revenue: 2.4M</div>
+                  </div>
+                  <div class="bg-orange-100 rounded p-2 text-center text-xs">+ Add New Order</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content - Text (Mobile: Bottom, Desktop: Right) -->
+          <div class="space-y-8 lg:space-y-10 order-2 lg:order-2" data-aos="fade-left" data-aos-duration="1000">
             <!-- Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-lg rounded-full border border-primary-200/50 text-sm font-medium text-primary-700">
               <div class="w-2 h-2 bg-secondary-500 rounded-full animate-pulse"></div>
-              Trusted by 1000+ businesses
+              Trusted by Smart Entrepreneurs
             </div>
             
             <div class="space-y-6">
@@ -253,58 +298,17 @@
             <!-- Stats -->
             <div class="grid grid-cols-3 gap-6 pt-8">
               <div class="stats-card text-center">
-                <div class="text-3xl lg:text-4xl font-bold gradient-text mb-1">1000+</div>
-                <div class="text-sm lg:text-base font-medium text-gray-600">Pengguna Aktif</div>
+                <div class="text-3xl lg:text-4xl font-bold gradient-text mb-1">100%</div>
+                <div class="text-sm lg:text-base font-medium text-gray-600">Offline Ready</div>
               </div>
               <div class="stats-card text-center">
-                <div class="text-3xl lg:text-4xl font-bold text-secondary-600 mb-1">99.9%</div>
-                <div class="text-sm lg:text-base font-medium text-gray-600">Uptime</div>
+                <div class="text-3xl lg:text-4xl font-bold text-secondary-600 mb-1">0</div>
+                <div class="text-sm lg:text-base font-medium text-gray-600">Biaya Bulanan</div>
               </div>
               <div class="stats-card text-center">
-                <div class="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">24/7</div>
-                <div class="text-sm lg:text-base font-medium text-gray-600">Support</div>
+                <div class="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">5★</div>
+                <div class="text-sm lg:text-base font-medium text-gray-600">User Rating</div>
               </div>
-            </div>
-          </div>
-
-          <!-- Right Content - App Image -->
-          <div class="relative flex justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-            <div class="relative">
-              <!-- Floating Badge -->
-              <div class="absolute -top-6 -right-6 bg-gradient-to-br from-orange-500 to-red-500 text-white px-6 py-3 rounded-2xl text-sm font-bold badge-floating z-10 shadow-xl">
-                <div class="flex items-center gap-2">
-                  <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                  Tanpa Internet
-                </div>
-              </div>
-              
-              <!-- App Image -->
-              <img 
-                src="assets/catat-order-offline.png" 
-                alt="Catat Order Offline App" 
-                class="w-80 md:w-96 lg:w-[28rem] hover:scale-105 transition-transform duration-500"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              >
-              
-              <!-- Fallback jika gambar tidak ada -->
-              <div class="w-80 md:w-96 lg:w-[28rem] h-96 bg-gradient-to-br from-green-100 to-orange-100 rounded-2xl shadow-2xl border border-gray-200 hover:scale-105 transition-transform duration-500 flex flex-col items-center justify-center text-center p-8" style="display: none;">
-                <div class="w-24 h-24 bg-gradient-to-br from-green-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                  <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">Catat Order Offline</h3>
-                <p class="text-gray-600 text-lg">Aplikasi Manajemen Pesanan</p>
-                <div class="bg-white rounded-xl p-4 mt-4 w-full">
-                  <div class="text-sm text-gray-500 mb-2">Preview Dashboard</div>
-                  <div class="space-y-2">
-                    <div class="bg-gray-100 rounded p-2 text-xs">📊 Total Order: 24</div>
-                    <div class="bg-gray-100 rounded p-2 text-xs">💰 Pendapatan: Rp 2.450.000</div>
-                    <div class="bg-orange-500 text-white rounded p-2 text-xs">+ Tambah Order</div>
-                  </div>
-                </div>
-              </div>
-              >
             </div>
           </div>
         </div>
@@ -330,75 +334,75 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
                 <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Sekali Bayar Pakai Selamanya</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Sekali Bayar Pakai Selamanya</h3>
             <p class="text-gray-600 leading-relaxed">Tanpa langganan bulanan atau biaya tersembunyi. Investasi sekali untuk keuntungan selamanya.</p>
           </div>
 
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Mudah Digunakan</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Mudah Digunakan</h3>
             <p class="text-gray-600 leading-relaxed">Interface sederhana dan intuitif. Bahkan pemula bisa langsung mahir dalam hitungan menit.</p>
           </div>
 
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Bisa Dipakai Tanpa Internet</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Bisa Dipakai Tanpa Internet</h3>
             <p class="text-gray-600 leading-relaxed">Tetap produktif meski koneksi internet bermasalah. Sinkronisasi otomatis saat online kembali.</p>
           </div>
 
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Data 100% Milik Pribadi</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Data 100% Milik Pribadi</h3>
             <p class="text-gray-600 leading-relaxed">Keamanan dan privasi data terjamin sepenuhnya. Tidak ada yang bisa mengakses data bisnis Anda.</p>
           </div>
 
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="500">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Desain untuk Usaha Kecil</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Desain untuk Usaha Kecil</h3>
             <p class="text-gray-600 leading-relaxed">Dibuat khusus untuk kebutuhan UMKM dengan fitur yang tepat sasaran dan mudah dipahami.</p>
           </div>
 
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="600">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Fitur Lengkap & Praktis</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Fitur Lengkap & Praktis</h3>
             <p class="text-gray-600 leading-relaxed">Semua yang dibutuhkan dalam satu aplikasi. Tidak perlu lagi menggunakan banyak tool terpisah.</p>
           </div>
 
-          <div class="card-premium p-8 text-center group" data-aos="fade-up" data-aos-delay="700">
-            <div class="feature-icon-container w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-10 h-10 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="700">
+            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Tanpa Iklan Sama Sekali</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Tanpa Iklan Sama Sekali</h3>
             <p class="text-gray-600 leading-relaxed">Fokus penuh pada bisnis tanpa gangguan iklan yang mengganggu konsentrasi kerja Anda.</p>
           </div>
         </div>
@@ -412,14 +416,13 @@
               <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full border-2 border-white"></div>
             </div>
             <div class="text-left">
-              <div class="font-bold text-lg text-gray-900">Join 1000+ Happy Users</div>
+              <div class="font-bold text-lg text-gray-900">Join Smart Business Owners</div>
               <div class="text-gray-600">Yang sudah merasakan manfaatnya</div>
             </div>
           </div>
         </div>
       </div>
     </section>
-            <p class="text-sm text-gray-600">Fokus penuh pada bisnis tanpa gangguan</p>
           </div>
         </div>
       </div>
@@ -550,8 +553,8 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <div class="bg-white card-shadow rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 mb-12">
+          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
             <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center">
               <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
@@ -561,7 +564,7 @@
             <p class="text-gray-600">Baru mulai jualan online dan butuh sistem yang mudah digunakan untuk mencatat pesanan dengan rapi.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
             <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
               <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
@@ -572,7 +575,7 @@
             <p class="text-gray-600">Ingin mengelola orderan reseller dan dropship dengan lebih terorganisir dan professional.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
             <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
               <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
@@ -582,7 +585,7 @@
             <p class="text-gray-600">Pemilik usaha kecil yang ingin meningkatkan cara mengelola bisnis agar lebih modern dan efisien.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
             <div class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-6 flex items-center justify-center">
               <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"></path>
@@ -592,7 +595,7 @@
             <p class="text-gray-600">Tidak ingin mengeluarkan biaya berlangganan bulanan atau tahunan untuk aplikasi manajemen pesanan.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
+          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
             <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
               <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
@@ -609,10 +612,7 @@
           <p class="text-lg mb-6 opacity-90">Ayo mulai kelola pesanan bisnis Anda dengan lebih profesional dan efisien sekarang juga!</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <button class="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
-              Coba Gratis Sekarang
-            </button>
-            <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors duration-300">
-              Pelajari Lebih Lanjut
+              Order Sekarang
             </button>
           </div>
         </div>
@@ -632,109 +632,109 @@
         </div>
 
         <!-- Pricing Card -->
-        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-12 relative overflow-visible mt-12" data-aos="zoom-in">
+        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-4 sm:p-8 md:p-12 relative overflow-visible mt-12" data-aos="zoom-in">
           <!-- Background Pattern -->
           <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-transparent rounded-full -mr-16 -mt-16"></div>
           <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-green-100 to-transparent rounded-full -ml-12 -mb-12"></div>
           
           <!-- Popular Badge -->
-          <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
-            <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-full text-sm font-bold shadow-xl border-4 border-white">
+          <div class="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-1/2 z-20">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold shadow-xl border-4 border-white">
               🔥 Penawaran Terbatas
             </div>
           </div>
 
           <div class="relative z-10">
             <!-- Product Info -->
-            <div class="text-center mb-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Catat Order Offline</h3>
-              <p class="text-gray-600">Lisensi Seumur Hidup</p>
+            <div class="text-center mb-6 sm:mb-8">
+              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2 mt-4">Catat Order Offline</h3>
+              <p class="text-sm sm:text-base text-gray-600">Lisensi Seumur Hidup</p>
             </div>
 
             <!-- Price Section -->
             <div class="text-center mb-8">
-              <div class="flex items-center justify-center gap-4 mb-4">
-                <div class="text-right">
-                  <div class="text-gray-500 text-sm">Harga Normal</div>
-                  <div id="originalPrice" class="text-3xl font-bold text-gray-400 line-through">Rp 275.000</div>
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4">
+                <div class="text-center sm:text-right">
+                  <div class="text-gray-500 text-xs sm:text-sm">Harga Normal</div>
+                  <div id="originalPrice" class="text-2xl sm:text-4xl font-bold text-gray-400 line-through">Rp 275.000</div>
                 </div>
-                <div class="text-6xl">→</div>
-                <div class="text-left">
-                  <div class="text-gray-500 text-sm">Harga Promo</div>
-                  <div id="finalPrice" class="text-5xl font-bold text-green-600">Rp 275.000</div>
+                <div class="text-2xl sm:text-6xl transform rotate-90 sm:rotate-0">→</div>
+                <div class="text-center sm:text-left">
+                  <div class="text-gray-500 text-xs sm:text-sm">Harga Promo</div>
+                  <div id="finalPrice" class="text-3xl sm:text-6xl font-bold text-green-600">Rp 275.000</div>
                 </div>
               </div>
-              <div id="savings" class="text-orange-600 font-semibold text-lg hidden">
+              <div id="savings" class="text-orange-600 font-semibold text-sm sm:text-lg hidden">
                 💰 Hemat Rp <span id="savingsAmount">0</span>!
               </div>
             </div>
 
             <!-- Promo Code Section -->
-            <div class="bg-gray-50 rounded-2xl p-6 mb-8">
-              <h4 class="text-lg font-semibold text-gray-900 mb-4 text-center">🎁 Punya Kode Promo?</h4>
-              <div class="flex gap-3">
+            <div class="bg-gray-50 rounded-2xl p-4 sm:p-6 mb-8">
+              <h4 class="text-base sm:text-lg font-semibold text-gray-900 mb-4 text-center">🎁 Punya Kode Promo?</h4>
+              <div class="flex flex-col sm:flex-row gap-3">
                 <div class="flex-1">
                   <input 
                     type="text" 
                     id="promoCode" 
                     placeholder="Masukkan kode promo..."
-                    class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-sm sm:text-base"
                     maxlength="10"
                   >
                 </div>
                 <button 
                   id="applyPromo"
-                  class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-300 whitespace-nowrap"
+                  class="bg-orange-500 hover:bg-orange-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-colors duration-300 whitespace-nowrap text-sm sm:text-base"
                 >
                   Terapkan
                 </button>
               </div>
-              <div id="promoMessage" class="mt-3 text-sm hidden"></div>
-              
+              <div id="promoMessage" class="mt-3 text-xs sm:text-sm hidden"></div>
+            </div>
 
             <!-- Features Included -->
             <div class="mb-8">
-              <h4 class="text-lg font-semibold text-gray-900 mb-4 text-center">✨ Yang Anda Dapatkan:</h4>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <h4 class="text-base sm:text-lg font-semibold text-gray-900 mb-4 text-center">✨ Yang Anda Dapatkan:</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Lisensi seumur hidup</span>
+                  <span class="text-sm sm:text-base text-gray-700">Lisensi seumur hidup</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Update gratis selamanya</span>
+                  <span class="text-sm sm:text-base text-gray-700">Update gratis selamanya</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Support 24/7</span>
+                  <span class="text-sm sm:text-base text-gray-700">Support 24/7</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Tanpa biaya tersembunyi</span>
+                  <span class="text-sm sm:text-base text-gray-700">Tanpa biaya tersembunyi</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Garansi 30 hari</span>
+                  <span class="text-sm sm:text-base text-gray-700">Garansi 30 hari</span>
                 </div>
                 <div class="flex items-center gap-3">
                   <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -750,7 +750,7 @@
             <!-- CTA Button -->
             <div class="text-center">
               <button class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-12 py-4 rounded-2xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                🚀 Beli Sekarang & Mulai Jualan!
+                🚀 Beli Sekarang!
               </button>
               <p class="text-gray-500 text-sm mt-4">
                 🔒 Pembayaran aman & terpercaya • 💰 Garansi uang kembali 30 hari
@@ -761,12 +761,12 @@
 
         <!-- Social Proof -->
         <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="200">
-          <p class="text-gray-600 mb-4">Dipercaya oleh 1000+ pebisnis di seluruh Indonesia</p>
+          <p class="text-gray-600 mb-4">Solusi terpercaya untuk pebisnis UMKM di seluruh Indonesia</p>
           <div class="flex justify-center items-center gap-2">
             <div class="flex">
               ⭐⭐⭐⭐⭐
             </div>
-            <span class="text-gray-700 font-medium">4.9/5 rating dari pengguna</span>
+            <span class="text-gray-700 font-medium"></span>
           </div>
         </div>
       </div>
@@ -782,30 +782,8 @@
               Catat Order <span class="text-orange-500">Offline</span>
             </h3>
             <p class="text-gray-400 mb-6 leading-relaxed">
-              Solusi terdepan untuk manajemen pesanan offline. Tingkatkan efisiensi bisnis Anda dengan teknologi terpercaya dan mudah digunakan.
+              Solusi terdepan untuk manajemen pesanan bisnis anda, tingkatkan efesiensi bisnis anda dengan aplikasi menajemen order powerfull dan terpercaya.
             </p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.1.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
-                </svg>
-              </a>
-            </div>
           </div>
 
           <!-- Product Column -->

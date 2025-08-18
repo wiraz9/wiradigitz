@@ -63,10 +63,45 @@
     </script>
     
     <style>
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      
       body { 
         font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
         line-height: 1.7;
         letter-spacing: -0.02em;
+        overflow-x: hidden;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Mobile specific fixes */
+      @media (max-width: 640px) {
+        .card-premium {
+          min-height: auto;
+        }
+        
+        /* Modal fixes for mobile */
+        #orderModal {
+          padding: 1rem 0.75rem;
+        }
+        
+        #orderModal > div {
+          max-width: calc(100vw - 1.5rem);
+          max-height: calc(100vh - 2rem);
+          overflow-y: auto;
+        }
+      }
+      
+      /* Prevent body scroll when modal is open */
+      body.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
       }
       
       .hero-bg { 
@@ -290,9 +325,9 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 pt-4">
-              <button class="btn-secondary text-white px-8 lg:px-10 py-4 lg:py-5 rounded-2xl font-semibold text-lg lg:text-xl">
+              <a href="#pricing" class="btn-secondary text-white px-8 lg:px-10 py-4 lg:py-5 rounded-2xl font-semibold text-lg lg:text-xl text-center inline-block transition-all duration-300">
                 Order Sekarang
-              </button>
+              </a>
             </div>
 
             <!-- Stats -->
@@ -334,76 +369,76 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6 mb-16">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
                 <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Sekali Bayar Pakai Selamanya</h3>
-            <p class="text-gray-600 leading-relaxed">Tanpa langganan bulanan atau biaya tersembunyi. Investasi sekali untuk keuntungan selamanya.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Sekali Bayar Pakai Selamanya</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Tanpa langganan bulanan atau biaya tersembunyi. Investasi sekali untuk keuntungan selamanya.</p>
           </div>
 
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Mudah Digunakan</h3>
-            <p class="text-gray-600 leading-relaxed">Interface sederhana dan intuitif. Bahkan pemula bisa langsung mahir dalam hitungan menit.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Mudah Digunakan</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Interface sederhana dan intuitif. Bahkan pemula bisa langsung mahir dalam hitungan menit.</p>
           </div>
 
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Bisa Dipakai Tanpa Internet</h3>
-            <p class="text-gray-600 leading-relaxed">Tetap produktif meski koneksi internet bermasalah. Sinkronisasi otomatis saat online kembali.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Bisa Dipakai Tanpa Internet</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Tetap produktif meski koneksi internet bermasalah. Sinkronisasi otomatis saat online kembali.</p>
           </div>
 
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Data 100% Milik Pribadi</h3>
-            <p class="text-gray-600 leading-relaxed">Keamanan dan privasi data terjamin sepenuhnya. Tidak ada yang bisa mengakses data bisnis Anda.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Data 100% Milik Pribadi</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Keamanan dan privasi data terjamin sepenuhnya. Tidak ada yang bisa mengakses data bisnis Anda.</p>
           </div>
 
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="500">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Desain untuk Usaha Kecil</h3>
-            <p class="text-gray-600 leading-relaxed">Dibuat khusus untuk kebutuhan UMKM dengan fitur yang tepat sasaran dan mudah dipahami.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Desain untuk Usaha Kecil</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Dibuat khusus untuk kebutuhan UMKM dengan fitur yang tepat sasaran dan mudah dipahami.</p>
           </div>
 
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="600">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Fitur Lengkap & Praktis</h3>
-            <p class="text-gray-600 leading-relaxed">Semua yang dibutuhkan dalam satu aplikasi. Tidak perlu lagi menggunakan banyak tool terpisah.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Fitur Lengkap & Praktis</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Semua yang dibutuhkan dalam satu aplikasi. Tidak perlu lagi menggunakan banyak tool terpisah.</p>
           </div>
 
-          <div class="card-premium p-6 text-center group" data-aos="fade-up" data-aos-delay="700">
-            <div class="feature-icon-container w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="card-premium p-3 md:p-6 text-center group" data-aos="fade-up" data-aos-delay="700">
+            <div class="feature-icon-container w-12 h-12 md:w-16 md:h-16 rounded-2xl mx-auto mb-3 md:mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 md:w-8 md:h-8 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Tanpa Iklan Sama Sekali</h3>
-            <p class="text-gray-600 leading-relaxed">Fokus penuh pada bisnis tanpa gangguan iklan yang mengganggu konsentrasi kerja Anda.</p>
+            <h3 class="text-sm md:text-xl font-bold text-gray-900 mb-2 md:mb-4">Tanpa Iklan Sama Sekali</h3>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">Fokus penuh pada bisnis tanpa gangguan iklan yang mengganggu konsentrasi kerja Anda.</p>
           </div>
         </div>
 
@@ -553,56 +588,56 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 mb-12">
-          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6 mb-12">
+          <div class="bg-white card-shadow rounded-xl p-3 lg:p-6 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-blue-100 rounded-full mx-auto mb-3 lg:mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 lg:w-8 lg:h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Penjual Online Pemula</h3>
-            <p class="text-gray-600">Baru mulai jualan online dan butuh sistem yang mudah digunakan untuk mencatat pesanan dengan rapi.</p>
+            <h3 class="text-sm lg:text-xl font-bold text-gray-900 mb-2 lg:mb-4">Penjual Online Pemula</h3>
+            <p class="text-xs lg:text-base text-gray-600">Baru mulai jualan online dan butuh sistem yang mudah digunakan untuk mencatat pesanan dengan rapi.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="bg-white card-shadow rounded-xl p-3 lg:p-6 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 rounded-full mx-auto mb-3 lg:mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 lg:w-8 lg:h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
                 <path fill-rule="evenodd" d="M3 8a2 2 0 012-2v9a2 2 0 104 0V6a2 2 0 012-2v9a2 2 0 104 0V6a2 2 0 012-2v9a2 2 0 104 0V8a2 2 0 00-2-2H5a2 2 0 00-2 2z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Reseller & Dropshipper</h3>
-            <p class="text-gray-600">Ingin mengelola orderan reseller dan dropship dengan lebih terorganisir dan professional.</p>
+            <h3 class="text-sm lg:text-xl font-bold text-gray-900 mb-2 lg:mb-4">Reseller & Dropshipper</h3>
+            <p class="text-xs lg:text-base text-gray-600">Ingin mengelola orderan reseller dan dropship dengan lebih terorganisir dan professional.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
-            <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="bg-white card-shadow rounded-xl p-3 lg:p-6 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-purple-100 rounded-full mx-auto mb-3 lg:mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 lg:w-8 lg:h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Usaha Rumahan / UMKM</h3>
-            <p class="text-gray-600">Pemilik usaha kecil yang ingin meningkatkan cara mengelola bisnis agar lebih modern dan efisien.</p>
+            <h3 class="text-sm lg:text-xl font-bold text-gray-900 mb-2 lg:mb-4">Usaha Rumahan / UMKM</h3>
+            <p class="text-xs lg:text-base text-gray-600">Pemilik usaha kecil yang ingin meningkatkan cara mengelola bisnis agar lebih modern dan efisien.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
-            <div class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="bg-white card-shadow rounded-xl p-3 lg:p-6 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-yellow-100 rounded-full mx-auto mb-3 lg:mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 lg:w-8 lg:h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Seller yang Mau Hemat Biaya</h3>
-            <p class="text-gray-600">Tidak ingin mengeluarkan biaya berlangganan bulanan atau tahunan untuk aplikasi manajemen pesanan.</p>
+            <h3 class="text-sm lg:text-xl font-bold text-gray-900 mb-2 lg:mb-4">Seller yang Mau Hemat Biaya</h3>
+            <p class="text-xs lg:text-base text-gray-600">Tidak ingin mengeluarkan biaya berlangganan bulanan atau tahunan untuk aplikasi manajemen pesanan.</p>
           </div>
 
-          <div class="bg-white card-shadow rounded-xl p-6 lg:p-8 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
-            <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="bg-white card-shadow rounded-xl p-3 lg:p-6 text-center hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
+            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-100 rounded-full mx-auto mb-3 lg:mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 lg:w-8 lg:h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Pebisnis yang Mengutamakan Privasi</h3>
-            <p class="text-gray-600">Sangat peduli dengan privasi data dan ingin memastikan informasi bisnis tetap aman dan pribadi.</p>
+            <h3 class="text-sm lg:text-xl font-bold text-gray-900 mb-2 lg:mb-4">Pebisnis yang Mengutamakan Privasi</h3>
+            <p class="text-xs lg:text-base text-gray-600">Sangat peduli dengan privasi data dan ingin memastikan informasi bisnis tetap aman dan pribadi.</p>
           </div>
         </div>
 
@@ -611,16 +646,16 @@
           <h3 class="text-2xl font-bold mb-4">Apakah Anda Termasuk Salah Satunya?</h3>
           <p class="text-lg mb-6 opacity-90">Ayo mulai kelola pesanan bisnis Anda dengan lebih profesional dan efisien sekarang juga!</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button class="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
+            <a href="#pricing" class="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 text-center inline-block">
               Order Sekarang
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="pt-32 pb-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white">
+    <section id="pricing" class="pt-32 pb-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-20" data-aos="fade-up">
           <h2 class="text-4xl font-bold text-gray-900 mb-4">
@@ -749,7 +784,7 @@
 
             <!-- CTA Button -->
             <div class="text-center">
-              <button class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-12 py-4 rounded-2xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <button id="buyNowBtn" class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-12 py-4 rounded-2xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 🚀 Beli Sekarang!
               </button>
               <p class="text-gray-500 text-sm mt-4">
@@ -775,7 +810,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-16 px-4 md:px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
           <!-- Brand Column -->
           <div class="lg:col-span-1">
             <h3 class="text-2xl font-bold text-white mb-4">
@@ -1019,6 +1054,176 @@
           }
         });
 
+        // Buy Now button functionality
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const orderModal = document.getElementById('orderModal');
+        const closeModal = document.getElementById('closeModal');
+        const orderForm = document.getElementById('orderForm');
+        const modalPromoCode = document.getElementById('modalPromoCode');
+        const customerName = document.getElementById('customerName');
+
+        // Function to update special price display
+        function updateSpecialPriceDisplay(promoCode) {
+          const specialPriceDisplay = document.getElementById('specialPriceDisplay');
+          const priceDetails = document.getElementById('priceDetails');
+          
+          if (promoCode === 'K50') {
+            specialPriceDisplay.classList.remove('hidden');
+            priceDetails.innerHTML = `
+              <div class="flex justify-between items-center">
+                <span>Harga normal:</span>
+                <span class="line-through text-gray-500">Rp 275.000</span>
+              </div>
+              <div class="flex justify-between items-center font-bold text-green-600">
+                <span>Harga dengan K50:</span>
+                <span>Rp 175.000</span>
+              </div>
+              <div class="text-xs text-green-600 mt-1">💰 Hemat Rp 100.000!</div>
+            `;
+          } else if (promoCode === 'K100') {
+            specialPriceDisplay.classList.remove('hidden');
+            priceDetails.innerHTML = `
+              <div class="flex justify-between items-center">
+                <span>Harga normal:</span>
+                <span class="line-through text-gray-500">Rp 275.000</span>
+              </div>
+              <div class="flex justify-between items-center font-bold text-green-600">
+                <span>Harga dengan K100:</span>
+                <span>Rp 225.000</span>
+              </div>
+              <div class="text-xs text-green-600 mt-1">💰 Hemat Rp 50.000!</div>
+            `;
+          } else {
+            specialPriceDisplay.classList.add('hidden');
+          }
+        }
+
+        buyNowBtn.addEventListener('click', function() {
+          // Set promo code in modal dari appliedPromo
+          if (appliedPromo && (appliedPromo === 'K50' || appliedPromo === 'K100')) {
+            modalPromoCode.value = appliedPromo;
+            modalPromoCode.disabled = false; // Allow editing
+            updateSpecialPriceDisplay(appliedPromo);
+          } else {
+            modalPromoCode.value = '';
+            modalPromoCode.disabled = false;
+            updateSpecialPriceDisplay('');
+          }
+          
+          // Show modal
+          orderModal.classList.remove('hidden');
+          document.body.classList.add('modal-open');
+          
+          // Focus on name input
+          setTimeout(() => customerName.focus(), 100);
+        });
+
+        // Close modal functionality
+        closeModal.addEventListener('click', function() {
+          orderModal.classList.add('hidden');
+          document.body.classList.remove('modal-open');
+          updateSpecialPriceDisplay('');
+        });
+
+        // Close modal when clicking outside
+        orderModal.addEventListener('click', function(e) {
+          if (e.target === orderModal) {
+            orderModal.classList.add('hidden');
+            document.body.classList.remove('modal-open');
+            updateSpecialPriceDisplay('');
+          }
+        });
+
+        // Handle form submission
+        orderForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const nama = customerName.value.trim();
+          let kodePromo = modalPromoCode.value.trim().toUpperCase();
+          
+          if (!nama) {
+            alert('Silakan masukkan nama lengkap Anda');
+            return;
+          }
+          
+          // Validate promo code if entered
+          let promoText = '';
+          if (kodePromo) {
+            if (kodePromo === 'K50' || kodePromo === 'K100') {
+              promoText = kodePromo;
+            } else {
+              alert('Kode promo tidak valid. Gunakan K50 atau K100');
+              return;
+            }
+          } else {
+            promoText = 'Tidak menggunakan kode promo';
+          }
+          
+          // Generate WhatsApp message
+          let message = `Assalamualaikum ka\nsaya mau order apk, catat order offlinenya\n\n`;
+          message += `Nama : ${nama}\n`;
+          message += `Kode promo : ${promoText}\n\n`;
+          message += `tolong segera diproses.\nterimakasih`;
+          
+          // Encode message for URL
+          const encodedMessage = encodeURIComponent(message);
+          
+          // WhatsApp number (GANTI DENGAN NOMOR WHATSAPP BISNIS ANDA)
+          // Format: 62 + nomor tanpa 0 di depan
+          // Contoh: 081234567890 menjadi 6281234567890
+          const whatsappNumber = '6281382245345'; // Ganti dengan nomor WA bisnis Anda
+          
+          // Create WhatsApp URL
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+          
+          // Open WhatsApp
+          window.open(whatsappUrl, '_blank');
+          
+          // Close modal
+          orderModal.classList.add('hidden');
+          document.body.classList.remove('modal-open');
+          
+          // Reset form
+          customerName.value = '';
+          modalPromoCode.value = '';
+          updateSpecialPriceDisplay('');
+        });
+
+        // Add promo code validation for modal input
+        modalPromoCode.addEventListener('input', function() {
+          const promoCode = this.value.trim().toUpperCase();
+          const errorDiv = document.getElementById('modalPromoError');
+          
+          // Remove existing error if any
+          if (errorDiv) {
+            errorDiv.remove();
+          }
+          
+          // Update special price display
+          if (promoCode === 'K50' || promoCode === 'K100') {
+            updateSpecialPriceDisplay(promoCode);
+          } else if (promoCode === '') {
+            updateSpecialPriceDisplay('');
+          } else {
+            updateSpecialPriceDisplay('');
+            // Show error message
+            const error = document.createElement('div');
+            error.id = 'modalPromoError';
+            error.className = 'text-red-500 text-xs mt-1';
+            error.textContent = 'Kode promo tidak valid. Gunakan K50 atau K100';
+            this.parentNode.appendChild(error);
+          }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && !orderModal.classList.contains('hidden')) {
+            orderModal.classList.add('hidden');
+            document.body.classList.remove('modal-open');
+            updateSpecialPriceDisplay('');
+          }
+        });
+
         // Reset promo function (if needed)
         window.resetPromo = function() {
           updatePricing(originalPrice, 0, '');
@@ -1026,5 +1231,58 @@
         };
       });
     </script>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden overflow-hidden" style="padding: 0.75rem;">
+      <div class="bg-white rounded-xl p-4 md:p-6 w-full relative mx-auto overflow-hidden" style="max-width: min(400px, calc(100vw - 1.5rem)); max-height: calc(100vh - 1.5rem);">
+        <!-- Close Button -->
+        <button id="closeModal" class="absolute top-2 right-2 md:top-3 md:right-3 text-gray-400 hover:text-gray-600 z-10">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Scrollable Content Container -->
+        <div class="h-full overflow-y-auto pr-2" style="max-height: calc(100vh - 3rem);">
+          <!-- Modal Content -->
+          <div class="text-center mb-4 md:mb-6">
+            <h2 class="text-base md:text-xl font-bold text-gray-900 mb-2 pr-6">Silahkan isi nama lengkap anda untuk memesan</h2>
+          </div>
+
+          <form id="orderForm" class="space-y-3 md:space-y-4">
+            <!-- Nama Input -->
+            <div>
+              <label class="block text-gray-700 font-medium mb-1 md:mb-2 text-sm md:text-base">Nama *</label>
+              <input type="text" id="customerName" required class="w-full px-3 py-2 md:px-4 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan nama lengkap">
+            </div>
+
+            <!-- Kode Promo Display -->
+            <div>
+              <label class="block text-gray-700 font-medium mb-1 md:mb-2 text-sm md:text-base">Kode Promo</label>
+              <input type="text" id="modalPromoCode" class="w-full px-3 py-2 md:px-4 md:py-3 text-sm md:text-base border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Masukkan kode promo (opsional)">
+              
+              <!-- Harga Khusus Display -->
+              <div id="specialPriceDisplay" class="mt-2 p-3 bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg hidden">
+                <div class="flex items-center space-x-2">
+                  <span class="text-green-600">🎉</span>
+                  <span class="font-semibold text-green-700 text-sm">Harga khusus untuk Anda:</span>
+                </div>
+                <div id="priceDetails" class="mt-1 text-sm text-gray-700"></div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 md:py-4 rounded-xl font-bold text-sm md:text-lg transition-all duration-300 transform hover:scale-105">
+              📱 Kirim Pesanan
+            </button>
+          </form>
+
+          <div class="text-center mt-3 md:mt-4 text-xs md:text-sm text-gray-500">
+            Anda akan diarahkan ke WhatsApp untuk melanjutkan pesanan
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

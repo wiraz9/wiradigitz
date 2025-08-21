@@ -691,7 +691,7 @@
               <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4">
                 <div class="text-center sm:text-right">
                   <div class="text-gray-500 text-xs sm:text-sm">Harga Normal</div>
-                  <div id="originalPrice" class="text-2xl sm:text-4xl font-bold text-gray-400 line-through">Rp 275.000</div>
+                  <div id="originalPrice" class="text-2xl sm:text-4xl font-bold text-gray-400 line-through">Rp325.000</div>
                 </div>
                 <div class="text-2xl sm:text-6xl transform rotate-90 sm:rotate-0">→</div>
                 <div class="text-center sm:text-left">
@@ -753,23 +753,7 @@
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <span class="text-sm sm:text-base text-gray-700">Support 24/7</span>
-                </div>
-                <div class="flex items-center gap-2 sm:gap-3">
-                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
                   <span class="text-sm sm:text-base text-gray-700">Tanpa biaya tersembunyi</span>
-                </div>
-                <div class="flex items-center gap-2 sm:gap-3">
-                  <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-2 h-2 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
-                  <span class="text-sm sm:text-base text-gray-700">Garansi 30 hari</span>
                 </div>
                 <div class="flex items-center gap-3">
                   <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -807,6 +791,83 @@
       </div>
     </section>
 
+    <!-- Q&A Section -->
+    <section class="max-w-2xl mx-auto my-8 md:my-12 px-4">
+      <h2 class="text-xl md:text-2xl font-bold text-center text-green-700 mb-6">Pertanyaan Umum (Q&A)</h2>
+      <div id="qaList" class="space-y-4">
+        <!-- Q&A items will be rendered here -->
+      </div>
+    </section>
+
+    <script>
+      // Q&A Data
+      const qaData = [
+        {
+          q: 'Apa itu Catat Order Offline?',
+          a: 'Catat Order Offline adalah aplikasi manajemen pesanan yang dirancang untuk membantu pelaku usaha kecil dan menengah mencatat dan mengelola pesanan mereka secara efisien, bahkan tanpa koneksi internet.'
+        },
+        {
+          q: 'Apakah aplikasi ini benar-benar bisa digunakan tanpa internet?',
+          a: 'Ya, aplikasi ini sepenuhnya dapat digunakan secara offline. Semua data disimpan secara lokal.'
+        },
+        {
+          q: 'Berapa biaya untuk menggunakan aplikasi ini?',
+          a: 'Aplikasi ini menggunakan model pembayaran sekali bayar seumur hidup, tanpa biaya langganan bulanan atau tahunan. Harga normal saat ini adalah Rp 275.000.'
+        },
+        {
+          q: 'Apakah data saya aman dan pribadi?',
+          a: 'Ya, semua data yang Anda masukkan disimpan secara lokal di perangkat Anda. Tidak ada data yang disimpan di server pihak ketiga, sehingga privasi Anda terjamin.'
+        },
+        {
+          q: 'Apakah aplikasi ini cocok untuk usaha kecil dan UMKM?',
+          a: 'Tentu saja. Aplikasi ini dirancang khusus untuk memenuhi kebutuhan pelaku usaha kecil dan menengah, dengan fitur yang sederhana namun efektif.'
+        },
+        {
+          q: 'Apa saja fitur utama yang ditawarkan?',
+          a: 'Beberapa fitur utama meliputi:\n\n- Dashboard ringkasan bisnis\n- Manajemen pesanan dan sistem dropship\n- Cetak label otomatis\n- Analisis data dan laporan penjualan\n- Catatan pengeluaran dan laporan cashflow\n- Ekspor dan impor data'
+        },
+        {
+          q: 'Apakah aplikasi ini bebas dari iklan?',
+          a: 'Ya, aplikasi ini bebas dari iklan, memberikan pengalaman pengguna yang fokus dan tanpa gangguan.'
+        },
+        {
+          q: 'Apakah ada tutorial atau panduan penggunaan?',
+          a: 'Ya, aplikasi ini dilengkapi dengan tutorial lengkap yang memandu Anda langkah demi langkah dalam menggunakannya, silahkan klik link tutorial di footer'
+        }
+      ];
+
+      // Render Q&A
+      const qaList = document.getElementById('qaList');
+      qaData.forEach((item, idx) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'border border-green-200 rounded-xl bg-gradient-to-r from-green-50 to-blue-50 shadow-sm';
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'w-full text-left px-4 py-3 md:px-6 md:py-4 font-bold text-gray-800 focus:outline-none flex justify-between items-center';
+        btn.innerHTML = `<span>${item.q}</span><svg class="w-5 h-5 ml-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>`;
+
+        const answer = document.createElement('div');
+        answer.className = 'px-4 md:px-6 pb-4 text-gray-700 text-sm md:text-base hidden';
+        answer.textContent = item.a;
+
+        btn.addEventListener('click', function() {
+          const isOpen = answer.classList.contains('hidden') === false;
+          // Close all answers
+          document.querySelectorAll('#qaList div > div').forEach(el => el.classList.add('hidden'));
+          document.querySelectorAll('#qaList button svg').forEach(svg => svg.classList.remove('rotate-180'));
+          if (!isOpen) {
+            answer.classList.remove('hidden');
+            btn.querySelector('svg').classList.add('rotate-180');
+          }
+        });
+
+        wrapper.appendChild(btn);
+        wrapper.appendChild(answer);
+        qaList.appendChild(wrapper);
+      });
+    </script>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-16 px-4 md:px-8">
       <div class="max-w-7xl mx-auto">
@@ -826,7 +887,7 @@
             <h4 class="text-white font-semibold text-lg mb-6">Produk</h4>
             <ul class="space-y-4">
               <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">Fitur Utama</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">Pricing</a></li>>
+              <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">Pricing</a></li>
               <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors">Download</a></li>
           </div>
 
@@ -849,7 +910,7 @@
               <li>
                 <a href="tel:+6281234567890" class="text-gray-400 hover:text-orange-500 transition-colors flex items-center">
                   <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0  6 6.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                   </svg>
                   +681382245345
                 </a>
@@ -1265,12 +1326,14 @@
             </button>
           </form>
 
+
           <div class="text-center mt-3 md:mt-4 text-xs md:text-sm text-gray-500">
             Anda akan diarahkan ke WhatsApp untuk melanjutkan pesanan
           </div>
         </div>
       </div>
     </div>
+
 
   </body>
 </html>
